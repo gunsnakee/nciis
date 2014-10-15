@@ -33,7 +33,7 @@ public class NciisService implements NciisInterf {
             e.printStackTrace();
         }
         try {
-            code=  bf.readLine();
+            code= bf!=null?  bf.readLine():"";
         } catch (IOException e) {
             e.printStackTrace();
         }
