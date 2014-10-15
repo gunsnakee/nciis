@@ -16,7 +16,6 @@
 
    <modules>
        <module>nciis-service</module>
-       <module>nciis-interface</module>
        <module>nciis-provider</module>
        <module>nciis-consumer</module>
    </modules>

@@ -18,7 +18,7 @@
     <dubbo:protocol name="dubbo" port="20880" />
 
     <!-- 声明需要暴露的服务接口 -->
-    <dubbo:service interface="com.shikee.nciis.interf.NciisInterf" ref="nciisService" />
+    <dubbo:service interface="com.shikee.nciis.service.NciisInterf" ref="nciisService" />
 
     <!-- 和本地bean一样实现服务 -->
     <bean id="nciisService" class="com.shikee.nciis.service.NciisService" />

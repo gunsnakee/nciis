@@ -1,6 +1,5 @@
 package com.shikee.nciis.service;
 
-import com.shikee.nciis.interf.NciisInterf;
 import org.codehaus.xfire.client.Client;
 import org.codehaus.xfire.transport.http.CommonsHttpMessageSender;
 
@@ -19,45 +18,13 @@ public class NciisService implements NciisInterf {
     public String getUser(String userName, String userNo)  {
 
 
-        StringBuffer con = new StringBuffer();
-        String condition = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?> \n" +
-                "<ROWS><INFO><SBM>******</SBM></INFO><ROW><GMSFHM>"+userNo+"\n" +
-                "</GMSFHM><XM>"+userName+"</XM></ROW><ROW FSD=” **” YWLX=” **” > \n" +
-                "<GMSFHM>XXXXXX</GMSFHM><XM>XXXXXX</XM></ROW><ROW FSD=” **” YWLX=” \n" +
-                "**”><GMSFHM>XXXXXX</GMSFHM><XM>XXXXXX</XM></ROW></ROWS>";
-        BufferedReader bf = null;
-        String code  = null;
+        String license = "D:/tt";
+        String con="<?xml version=\"1.0\" encoding=\"UTF-8\" ?><ROWS><INFO><SBM>******</SBM></INFO><ROW><GMSFHM>公民身份号码</GMSFHM><XM>姓名</XM></ROW><ROW FSD=” **” YWLX=” **” ><GMSFHM>XXXXXX</GMSFHM><XM>XXXXXX</XM></ROW><ROW FSD=” **” YWLX=”**”><GMSFHM>XXXXXX</GMSFHM><XM>XXXXXX</XM></ROW></ROWS>";
         try {
-            bf = new BufferedReader(new FileReader("D:\\公安接口文件/授权文件_南宁一站网网络技术有限公司_nnyznnyz48078_1112.txt"));
-        } catch (FileNotFoundException e) {
+            new NciicClient().executeClient("NciicServices", license , con);
+        } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-        try {
-            code= bf!=null?  bf.readLine():"";
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        Client client = null;
-        try {
-            client = new Client(new URL( "https://api.nciic.com.cn/nciic_ws/services/NciicServices?wsdl"));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        Object[] results = new Object[0];
-        //压缩传输
-        client.setProperty(CommonsHttpMessageSender.GZIP_ENABLED,
-                Boolean.TRUE);
-        //忽略超时
-        client.setProperty(CommonsHttpMessageSender.DISABLE_EXPECT_CONTINUE, "1");
-        client.setProperty(CommonsHttpMessageSender.HTTP_TIMEOUT, "0");
-        try {
-            results = client.invoke("nciicGetCondition", new Object[]{code});
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        System.out.println(results[0]);
         return "test";
     }
 }
