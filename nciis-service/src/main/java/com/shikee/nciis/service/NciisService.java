@@ -9,6 +9,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Date;
 
 /**
  * Created by Administrator on 2014/10/15.
@@ -17,14 +18,14 @@ public class NciisService implements NciisInterf {
     @Override
     public String getUser(String userName, String userNo)  {
 
-
-        String license = "D:/tt";
-        String con="<?xml version=\"1.0\" encoding=\"UTF-8\" ?><ROWS><INFO><SBM>******</SBM></INFO><ROW><GMSFHM>公民身份号码</GMSFHM><XM>姓名</XM></ROW><ROW FSD=” **” YWLX=” **” ><GMSFHM>XXXXXX</GMSFHM><XM>XXXXXX</XM></ROW><ROW FSD=” **” YWLX=”**”><GMSFHM>XXXXXX</GMSFHM><XM>XXXXXX</XM></ROW></ROWS>";
+        String ss = null;
+        String license = "/data/nnyz";
+        String con="<?xml version=\"1.0\" encoding=\"UTF-8\" ?><ROWS><INFO><SBM>123456789</SBM></INFO><ROW><GMSFHM>"+userNo+"</GMSFHM><XM>"+userName+"</XM></ROW><ROW FSD=\"450603\" YWLX=\"查询账户\" ><GMSFHM></GMSFHM><XM></XM></ROW><ROW FSD=\"\" YWLX=\"\"><GMSFHM></GMSFHM><XM></XM></ROW></ROWS>";
         try {
-            new NciicClient().executeClient("NciicServices", license , con);
+           ss =  new NciicClient().executeClient("NciicServices", license , con);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-        return "test";
+        return ss+" "+(new Date());
     }
 }

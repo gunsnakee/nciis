@@ -85,6 +85,8 @@ public class NciicClient {
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         System.out.println(result);
         return result;

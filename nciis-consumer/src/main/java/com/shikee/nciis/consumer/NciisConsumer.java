@@ -12,7 +12,7 @@ public class NciisConsumer {
         context.start();
 
         NciisInterf demoService = (NciisInterf)context.getBean("nciisService"); // 获取远程服务代理
-        String hello = demoService.getUser("test","123213123");
+        String hello = demoService.getUser("吴家武","450603198508150010");
 
         System.out.println( hello ); // 显示调用结果
     }
