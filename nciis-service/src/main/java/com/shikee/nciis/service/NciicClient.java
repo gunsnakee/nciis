@@ -45,8 +45,7 @@ public class NciicClient {
 
     }
 
-    public String executeClient(String serviceName, String license,
-                                String condition)
+    public static String executeClient(String serviceName, String condition)
             throws MalformedURLException {
 
         ProtocolSocketFactory easy = new EasySSLProtocolSocketFactory();

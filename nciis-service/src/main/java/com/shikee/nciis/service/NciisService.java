@@ -19,10 +19,9 @@ public class NciisService implements NciisInterf {
     public String getUser(String userName, String userNo)  {
 
         String ss = null;
-        String license = "/data/nnyz";
         String con="<?xml version=\"1.0\" encoding=\"UTF-8\" ?><ROWS><INFO><SBM>123456789</SBM></INFO><ROW><GMSFHM>"+userNo+"</GMSFHM><XM>"+userName+"</XM></ROW><ROW FSD=\"450603\" YWLX=\"查询账户\" ><GMSFHM></GMSFHM><XM></XM></ROW><ROW FSD=\"\" YWLX=\"\"><GMSFHM></GMSFHM><XM></XM></ROW></ROWS>";
         try {
-           ss =  new NciicClient().executeClient("NciicServices", license , con);
+           ss =  NciicClient.executeClient("NciicServices" , con);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
