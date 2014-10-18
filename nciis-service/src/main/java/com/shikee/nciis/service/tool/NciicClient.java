@@ -1,6 +1,7 @@
-package com.shikee.nciis.service;
+package com.shikee.nciis.service.tool;
 
 
+import com.shikee.nciis.service.tool.ServiceInf;
 import org.apache.commons.httpclient.protocol.Protocol;
 import org.apache.commons.httpclient.protocol.ProtocolSocketFactory;
 import org.apache.commons.io.IOUtils;

@@ -1,5 +1,6 @@
 package com.shikee.nciis.service;
 
+import com.shikee.nciis.service.tool.NciicClient;
 import junit.framework.TestCase;
 
 public class NciicClientTest extends TestCase {

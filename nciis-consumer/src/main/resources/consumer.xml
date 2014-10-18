@@ -11,6 +11,7 @@
     <dubbo:registry protocol="zookeeper" address="127.0.0.1:2181" />
 
     <!-- 生成远程服务代理，可以和本地bean一样使用demoService -->
-    <dubbo:reference id="nciisService" interface="com.shikee.nciis.service.NciisInterf" />
+    <dubbo:reference id="nciisServiceXfire" group="xfire" interface="com.shikee.nciis.service.api.NciisInterf" />
+    <dubbo:reference id="nciisServiceJax" group="jax" interface="com.shikee.nciis.service.api.NciisInterf" />
 
 </beans>
