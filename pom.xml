@@ -18,6 +18,7 @@
        <module>nciis-service</module>
        <module>nciis-provider</module>
        <module>nciis-consumer</module>
+       <module>nciis-service-generic</module>
    </modules>
 
   <dependencies>
