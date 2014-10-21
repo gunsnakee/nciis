@@ -1,5 +1,6 @@
 package com.shikee.nciis.generic.impl;
 
+import com.alibaba.dubbo.rpc.RpcContext;
 import com.shikee.nciis.generic.api.SayHelloService;
 import com.shikee.nciis.pojo.Person;
 
@@ -9,6 +10,7 @@ import com.shikee.nciis.pojo.Person;
 public class SayHelloServiceImpl implements SayHelloService {
     @Override
     public String sayHello(String user) {
+        System.out.println("hide attachment: "+RpcContext.getContext().getAttachment("hide parameter"));
         return "hello "+user;
     }
 
