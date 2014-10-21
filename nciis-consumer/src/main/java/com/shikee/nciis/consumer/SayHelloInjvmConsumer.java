@@ -1,6 +1,9 @@
 package com.shikee.nciis.consumer;
 
+import com.shikee.nciis.pojo.TwoTuple;
 import com.shikee.nciis.service.api.HelloService;
+import com.shikee.nciis.service.api.Notify;
+import com.shikee.nciis.service.impl.NotifyImpl;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -15,11 +18,31 @@ public class SayHelloInjvmConsumer {
         return context;
     }
 
-    static HelloService getHelloService(){
-        return  (HelloService) getContext().getBean("sayHelloService");
+    static TwoTuple<HelloService,NotifyImpl> getServices(){
+        ClassPathXmlApplicationContext context = getContext();
+        return new TwoTuple<HelloService, NotifyImpl>((HelloService) context.getBean("sayHelloService"),(NotifyImpl) context.getBean("notify"))  ;
     }
 
     public static void main(String[] args) throws Exception {
-        System.out.println( getHelloService().sayHello("wujw") );
+        TwoTuple<HelloService,NotifyImpl> aa = getServices();
+        System.out.println(aa.getFirst().sayHello("wujw"));
+        NotifyImpl notify = aa.getSecond();
+        for(int i=0;i<10;i++){
+            if(notify.errors.containsKey("wujw")){
+                Throwable throwable = notify.errors.get("wujw");
+                throwable.printStackTrace();
+                break;
+            }else{
+                if(notify.ret.containsKey("wujw")){
+                    System.out.println(notify.ret.get("wujw"));
+                    break;
+                }else {
+                    Thread.sleep(200);
+                }
+            }
+
+        }
+
+
     }
 }

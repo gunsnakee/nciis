@@ -7,7 +7,8 @@ import com.shikee.nciis.service.api.HelloService;
  */
 public class HelloServiceImpl implements HelloService {
     @Override
-    public String sayHello(String user) {
-        return "hello "+user;
+    public String sayHello(String user) throws Exception {
+        throw  new Exception("this is a test exception");
+        //return "hello "+user;
     }
 }
