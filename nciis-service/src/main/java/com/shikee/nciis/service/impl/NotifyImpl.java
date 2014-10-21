@@ -13,13 +13,13 @@ public class NotifyImpl implements Notify {
     public Map<String,Throwable> errors = new HashMap<String, Throwable>();
     @Override
     public void onreturn(String welcomeMsg, String user) {
-        System.out.println("onreturn... "+user);
+        //System.out.println("onreturn... "+user);
         ret.put(user,welcomeMsg);
     }
 
     @Override
     public void onthrow(Throwable tx, String user) {
-        System.out.println("onthrow... "+user);
+        //System.out.println("onthrow... "+user);
         errors.put(user,tx);
     }
 }

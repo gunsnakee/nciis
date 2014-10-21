@@ -9,6 +9,7 @@ public class HelloServiceImpl implements HelloService {
     @Override
     public String sayHello(String user) throws Exception {
         //throw  new Exception("this is a test exception");
+        System.out.println("provider execute sayhello...");
         return "hello "+user;
     }
 }

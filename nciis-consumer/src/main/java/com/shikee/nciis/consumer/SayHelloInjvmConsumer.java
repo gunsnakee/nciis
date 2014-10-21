@@ -6,6 +6,8 @@ import com.shikee.nciis.service.api.Notify;
 import com.shikee.nciis.service.impl.NotifyImpl;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.Random;
+
 /**
  * Created by Administrator on 2014/10/20.
  */
@@ -25,8 +27,15 @@ public class SayHelloInjvmConsumer {
 
     public static void main(String[] args) throws Exception {
         TwoTuple<HelloService,NotifyImpl> aa = getServices();
-        System.out.println(aa.getFirst().sayHello("wujw"));
-        NotifyImpl notify = aa.getSecond();
+
+        Random r = new Random(47);
+
+        for(int i=0;i<100;i++){
+            System.out.println(aa.getFirst().sayHello(r.nextInt(10)+""));
+        }
+
+
+       /* NotifyImpl notify = aa.getSecond();
         for(int i=0;i<10;i++){
             if(notify.errors.containsKey("wujw")){
                 Throwable throwable = notify.errors.get("wujw");
@@ -41,7 +50,7 @@ public class SayHelloInjvmConsumer {
                 }
             }
 
-        }
+        }*/
 
 
     }

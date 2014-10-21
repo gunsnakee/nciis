@@ -13,7 +13,7 @@
     <!--<dubbo:reference id="sayHelloService" interface="com.shikee.nciis.service.api.HelloService" injvm="true" />-->
 
     <dubbo:reference id="sayHelloService" interface="com.shikee.nciis.service.api.HelloService" >
-        <dubbo:method name="sayHello" async="true" onreturn="notify.onreturn" onthrow="notify.onthrow"/>
+        <dubbo:method name="sayHello" async="false" onreturn="notify.onreturn" onthrow="notify.onthrow"/>
     </dubbo:reference>
     <bean id="notify" class="com.shikee.nciis.service.impl.NotifyImpl"/>
 
