@@ -18,6 +18,8 @@
        <module>nciis-service</module>
        <module>nciis-provider</module>
        <module>nciis-consumer</module>
+       <module>nciis-pojo</module>
+       <module>nciis-service-generic</module>
        <module>nciis-web</module>
    </modules>
 
